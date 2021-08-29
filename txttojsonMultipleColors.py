@@ -7,7 +7,7 @@ lon = []
 urls = []
 extractedColors = []
 codedColors = []
-with open('/Users/elena/Documents/thesis/code/colors.txt') as csv_file:  # open vocabulary file
+with open('colors.txt') as csv_file:  # open vocabulary file
 
     csv_reader = csv.reader(csv_file, delimiter='\t')
     for row in csv_reader:
@@ -20,7 +20,7 @@ with open('/Users/elena/Documents/thesis/code/colors.txt') as csv_file:  # open 
 
 
 print(codedColors)
-file1 = open("/Users/elena/Documents/thesis/code/myfile.txt","w")
+file1 = open("output.txt","w")
 k1 = 0
 k2 = 0
 k3 = 0
