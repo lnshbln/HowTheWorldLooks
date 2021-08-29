@@ -105,7 +105,7 @@ keywords = []
 lat = []
 lon = []
 ExtractedColor = []
-with open('/Users/elena/Documents/thesis/code/citiescodes.txt') as csv_file:  # open vocabulary file
+with open('fullpathtocitiescodes.txt') as csv_file:  # open vocabulary file
 
     csv_reader = csv.reader(csv_file, delimiter='\t')
     for row in csv_reader:
@@ -120,11 +120,9 @@ for keyword in keywords:
 
         rgb_weights = [0.2989, 0.5870, 0.1140]
         #rgb_weights = [0.24, 0.2600, 0.25]
-        url = '/Users/elena/Documents/thesis/photos/'+keyword+'/architecture/00000.jpg'
+        url = '/photos/'+keyword+'/architecture/*.jpg'
         img = mpimg.imread(url)
         urls.append(url)
-        #scipy.ndimage.imread('/Users/elena/Sentinel_processing/000018.jpg', mode='L')
-        #scipy.misc.face()
         size = img.size
         approxNumberOfColor = size*0.0001
 
@@ -156,39 +154,7 @@ for keyword in keywords:
 
 rows = zip(keywords, lat, lon,ExtractedColor,urls)
 
-out_file = open('/Users/elena/Documents/thesis/code/colors.txt', 'w')  # open output file
+out_file = open('outputfile.txt', 'w')  # open output file
 writer = csv.writer((out_file), delimiter='\t')
 for row in rows:
         writer.writerow(row)
-
-
-
-#bin_max = np.where(a == a.max())
-
-#print ('maxbin', b[bin_max][0])
-#print (n,b)
-"""
-a = np.max(n)
-print(a)
-for y in range(0,len(n)):
-    elem = n[y]
-    if elem == a:
-     break
-else:   # ideally this should never be tripped
-    y = None
-print b[y]
-"""
-
-
-"""
-
-for i in newMass:
-    if (i-k)>10:
-        color = GreyToRGB(i)
-        editedMass.append(i)
-        k = i
-    else:
-        continue
-
-print(editedMass)
-"""
